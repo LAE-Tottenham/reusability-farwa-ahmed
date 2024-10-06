@@ -1,6 +1,7 @@
 import requests
 from pyfiglet import Figlet
 import os, time
+pip install pyfiglet
 
 # Help! I'm trying to make this cool bot but my code is too messy :( Please help me organise it into reusable components.
 
@@ -27,15 +28,18 @@ def weird_weather_bot():
     gender = gender_result[0]
     prob_percent = gender_result[1]
     print(f"\nHmmm, I'm {prob_percent}% sure you are a {gender}.")
-    
-    gender_correct = input("Am I right? :) (Y/n)")
-    if gender_correct.lower() in ["", "yes", "y", "ye"]:
-        print("Wooooooh! Computer 1, Human 0.")
-    else:
-        print("Ahhhh, sorry! :(")
 
-    postcode_raw = input("\nSo, what's your postcode? ")
-    postcode_resp = requests.get(f"https://api.postcodes.io/postcodes/{postcode_raw}").json()
+    def is_correct():
+        gender_correct = input("Am I right? :) (Y/n)")
+        if gender_correct.lower() in ["", "yes", "y", "ye"]:
+            print("Wooooooh! Computer 1, Human 0.")
+        else:
+            print("Ahhhh, sorry! :(")
+        return()    
+
+    def ask_postcode():
+        postcode_raw = input("\nSo, what's your postcode? ")
+        postcode_resp = requests.get(f"https://api.postcodes.io/postcodes/{postcode_raw}").json()
 
     area = postcode_resp['result']['admin_ward']
     longitude = postcode_resp['result']['longitude']
