@@ -7,19 +7,35 @@
 
 ###########################################
 
-def weird_calculation():
-    # get the length and width of the first triangle from the user
+def input_opp1():
     opp1 = float(input("Enter your first triangle's opposite side length: "))
+    return(opp1)
+def input_adj1():
     adj1 = float(input("Enter your first triangle's adjacent side length: "))
-
-    # work out the hyp
-    import math
+    return(adj1)
+opp1=input_opp1()
+adj1=input_adj1()
+    
+import math
+def find_hyp1():
     hyp1 = math.sqrt(opp1**2 + adj1**2)
+    return(hyp1)
 
-    # get the length and width of the second triangle from the user
+
+def input_opp2():
     opp2 = float(input("Enter your second triangle's opposite side length: "))
+    return(opp2)
+def input_adj2():
     adj2 = float(input("Enter your second triangle's adjacent side length: "))
+    return(adj2)
+opp2=input_opp2()
+adj2=input_adj2()    
 
+def find_hyp2():
+    hyp2 = math.sqrt(opp2**2 + adj2**2)
+    return(hyp2)
+
+    
     # work out the hyp
     import math
     hyp2 = math.sqrt(opp2**2 + adj2**2)
