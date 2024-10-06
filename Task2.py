@@ -29,22 +29,27 @@ def weird_weather_bot():
     prob_percent = gender_result[1]
     print(f"\nHmmm, I'm {prob_percent}% sure you are a {gender}.")
 
-    def is_correct():
-        gender_correct = input("Am I right? :) (Y/n)")
-        if gender_correct.lower() in ["", "yes", "y", "ye"]:
-            print("Wooooooh! Computer 1, Human 0.")
-        else:
-            print("Ahhhh, sorry! :(")
-        return()    
+def is_correct():
+    gender_correct = input("Am I right? :) (Y/n)")
+    if gender_correct.lower() in ["", "yes", "y", "ye"]:
+        print("Wooooooh! Computer 1, Human 0.")
+    else:
+        print("Ahhhh, sorry! :(")
+    return()    
 
-    def ask_postcode():
-        postcode_raw = input("\nSo, what's your postcode? ")
-        postcode_resp = requests.get(f"https://api.postcodes.io/postcodes/{postcode_raw}").json()
+def ask_postcode():
+    postcode_raw = input("\nSo, what's your postcode? ")
+    return(postcode_raw)
+postcode_raw=ask_postcode()
 
+def find_area():
+    postcode_resp = requests.get(f"https://api.postcodes.io/postcodes/{postcode_raw}").json()
     area = postcode_resp['result']['admin_ward']
     longitude = postcode_resp['result']['longitude']
     latitude = postcode_resp['result']['latitude']
-    print(f"Nice! so you live in {area}.\n")
+    return(area)
+area=find_area()
+print(f"Nice! so you live in {area}.\n")
 
     print("Let me just check the weather there today...\n")
     
