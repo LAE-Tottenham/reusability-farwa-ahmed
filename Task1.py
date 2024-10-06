@@ -34,18 +34,11 @@ adj2=input_adj2()
 def find_hyp2():
     hyp2 = math.sqrt(opp2**2 + adj2**2)
     return(hyp2)
+hyp2=find_hyp2()    
 
-    
-    # work out the hyp
-    import math
-    hyp2 = math.sqrt(opp2**2 + adj2**2)
 
-    # create a third triangle with the hyp1 as the opp and hyp2 as the adj
-    opp3 = hyp1
-    adj3 = hyp2
-    
     import math
-    hyp3 = math.sqrt(opp3**2 + adj3**2)
+    hyp3 = math.sqrt(hyp1**2 + hyp2**2)
     return hyp3
 
 weird_answer = weird_calculation()
